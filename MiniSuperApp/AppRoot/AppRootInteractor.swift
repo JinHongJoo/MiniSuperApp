@@ -8,7 +8,7 @@
 import ModernRIBs
 
 protocol AppRootRouting: ViewableRouting {
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    func attachTabs()
 }
 
 protocol AppRootPresentable: Presentable {
@@ -34,7 +34,8 @@ final class AppRootInteractor: PresentableInteractor<AppRootPresentable>, AppRoo
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        
+        router?.attachTabs()
     }
 
     override func willResignActive() {

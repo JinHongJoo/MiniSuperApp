@@ -21,6 +21,7 @@ protocol AppRootViewControllable: ViewControllable {
 }
 
 final class AppRootRouter: LaunchRouter<AppRootInteractable, AppRootViewControllable>, AppRootRouting {
+    
     private let appHomeBuilder: AppHomeBuildable
     private let financeHomeBuilder: FinanceHomeBuildable
     private let profileHomeBuilder: ProfileHomeBuildable
@@ -38,10 +39,7 @@ final class AppRootRouter: LaunchRouter<AppRootInteractable, AppRootViewControll
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
-    
-    override func didLoad() {
-        super.didLoad()
-        
+    func attachTabs() {
         let appHome = appHomeBuilder.build(withListener: interactor)
         let financeHome = financeHomeBuilder.build(withListener: interactor)
         let profileHome = profileHomeBuilder.build(withListener: interactor)
@@ -56,6 +54,5 @@ final class AppRootRouter: LaunchRouter<AppRootInteractable, AppRootViewControll
                 profileHome.viewControllable
             ]
         )
-        
     }
 }

@@ -1,20 +1,24 @@
 PODS:
+  - CombineExt (1.8.0)
   - ModernRIBs (1.0.2)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - CombineExt
   - ModernRIBs
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - CombineExt
     - ModernRIBs
     - SnapKit
 
 SPEC CHECKSUMS:
+  CombineExt: c4daa97ef75754d8ef319bd79edeef82652f3eea
   ModernRIBs: 9a37e8cdd7bf404972fc37e94ceaef0fd127d1c4
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: c7975c8b4b222c0009db3f0d6d27569d6064bf47
+PODFILE CHECKSUM: d8b2a22bfcf853873badff715c33a3c3a429af7f
 
 COCOAPODS: 1.11.2
