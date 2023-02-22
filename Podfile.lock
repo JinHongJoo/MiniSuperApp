@@ -1,0 +1,20 @@
+PODS:
+  - ModernRIBs (1.0.2)
+  - SnapKit (5.6.0)
+
+DEPENDENCIES:
+  - ModernRIBs
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - ModernRIBs
+    - SnapKit
+
+SPEC CHECKSUMS:
+  ModernRIBs: 9a37e8cdd7bf404972fc37e94ceaef0fd127d1c4
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+
+PODFILE CHECKSUM: c7975c8b4b222c0009db3f0d6d27569d6064bf47
+
+COCOAPODS: 1.11.2
