@@ -14,7 +14,8 @@ protocol FinanceHomeDependency: Dependency {
 
 final class FinanceHomeComponent: Component<FinanceHomeDependency>,
                                     SuperPayDashboardDependency,
-                                    CardOnFileDashboardDependency
+                                    CardOnFileDashboardDependency,
+                                    AddPaymentMethodDependency
 {
     let cardOnFileRepository: CardOnFileRepository
     
@@ -58,9 +59,11 @@ final class FinanceHomeBuilder: Builder<FinanceHomeDependency>, FinanceHomeBuild
         
         let superPayDashboard = SuperPayDashboardBuilder(dependency: component)
         let cardOnFileDashboard = CardOnFileDashboardBuilder(dependency: component)
+        let addPaymentMethod = AddPaymentMethodBuilder(dependency: component)
         return FinanceHomeRouter(interactor: interactor,
                                  viewController: viewController,
                                  superPayDashboard: superPayDashboard,
-                                 cardOnFileDashboard: cardOnFileDashboard)
+                                 cardOnFileDashboard: cardOnFileDashboard,
+                                 addPaymentMethod: addPaymentMethod)
     }
 }
