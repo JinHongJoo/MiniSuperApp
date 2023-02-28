@@ -10,10 +10,12 @@ import ModernRIBs
 protocol FinanceHomeInteractable: Interactable,
                                 SuperPayDashboardListener,
                                 CardOnFileDashboardListener,
-                                AddPaymentMethodListener
+                                AddPaymentMethodListener,
+                                TopupListener
 {
     var router: FinanceHomeRouting? { get set }
     var listener: FinanceHomeListener? { get set }
+    var presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy { get }
 }
 
 protocol FinanceHomeViewControllable: ViewControllable {
@@ -25,20 +27,24 @@ final class FinanceHomeRouter: ViewableRouter<FinanceHomeInteractable, FinanceHo
     let superPayDashboardBuildable: SuperPayDashboardBuildable
     let cardOnFileDashboardBuildable: CardOnFileDashboardBuildable
     let addPaymentMethodBuildable: AddPaymentMethodBuildable
+    let topupBuildable: TopupBuildable
     
     var superPayDashboard: ViewableRouting?
     var cardOnFileDashboard: ViewableRouting?
     var addPaymentMethod: ViewableRouting?
+    var topup: Routing?
 
     init(interactor: FinanceHomeInteractable,
          viewController: FinanceHomeViewControllable,
          superPayDashboard: SuperPayDashboardBuildable,
          cardOnFileDashboard: CardOnFileDashboardBuildable,
-         addPaymentMethod: AddPaymentMethodBuildable
+         addPaymentMethod: AddPaymentMethodBuildable,
+         topup: TopupBuildable
     ) {
         self.superPayDashboardBuildable = superPayDashboard
         self.cardOnFileDashboardBuildable = cardOnFileDashboard
         self.addPaymentMethodBuildable = addPaymentMethod
+        self.topupBuildable = topup
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
@@ -67,6 +73,7 @@ final class FinanceHomeRouter: ViewableRouter<FinanceHomeInteractable, FinanceHo
         if self.addPaymentMethod != nil { return }
         let router = addPaymentMethodBuildable.build(withListener: interactor)
         let navigation = NavigationControllerable(root: router.viewControllable)
+        navigation.navigationController.presentationController?.delegate = interactor.presentationDelegateProxy
         viewController.present(navigation, animated: true, completion: nil)
         self.addPaymentMethod = router
         
@@ -76,9 +83,25 @@ final class FinanceHomeRouter: ViewableRouter<FinanceHomeInteractable, FinanceHo
     func detachAddPaymentMethod() {
         if let router = addPaymentMethod {
             router.viewControllable.dismiss(completion: nil)
-            self.addPaymentMethod = nil
-            
             detachChild(router)
+            
+            self.addPaymentMethod = nil
+        }
+    }
+    
+    func attachTopup() {
+        if self.topup != nil { return }
+        let router = topupBuildable.build(withListener: interactor)
+        self.topup = router
+        
+        attachChild(router)
+    }
+    
+    func detachTopup() {
+        if let router = self.topup {
+            detachChild(router)
+            
+            self.topup = nil
         }
     }
 }

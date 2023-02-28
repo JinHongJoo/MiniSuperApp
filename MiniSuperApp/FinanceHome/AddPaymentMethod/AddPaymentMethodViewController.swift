@@ -11,6 +11,7 @@ import SnapKit
 
 protocol AddPaymentMethodPresentableListener: AnyObject {
     func didTapClose()
+    func didTapAddCard(number: String, cvc: String, expiry: String)
 }
 
 final class AddPaymentMethodViewController: UIViewController, AddPaymentMethodPresentable, AddPaymentMethodViewControllable {
@@ -115,7 +116,11 @@ final class AddPaymentMethodViewController: UIViewController, AddPaymentMethodPr
     
     @objc
     private func didTapAddCard() {
-        
+        if let number = cardNumberTextField.text,
+           let cvc = securityTextField.text,
+           let expiry = expirationTextField.text {
+            listener?.didTapAddCard(number: number, cvc: cvc, expiry: expiry)
+        }
     }
     
     @objc
