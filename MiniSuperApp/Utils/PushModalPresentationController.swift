@@ -1,10 +1,3 @@
-//
-//  PushModalPresentationController.swift
-//  MiniSuperApp
-//
-//  Created by 주진홍 on 2023/02/21.
-//
-
 import UIKit
 
 public final class PushModalPresentationController: NSObject, UIViewControllerTransitioningDelegate {
@@ -81,4 +74,3 @@ private final class PushModalDismissTransitioning: NSObject, UIViewControllerAni
   }
   
 }
-

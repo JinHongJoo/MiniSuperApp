@@ -1,13 +1,6 @@
-//
-//  UIView+Utils.swift
-//  MiniSuperApp
-//
-//  Created by 주진홍 on 2023/02/21.
-//
-
 import UIKit
 
-extension UIView {
+public extension UIView {
   func addShadowWithRoundedCorners(
     _ radius: CGFloat = 16,
     shadowColor: CGColor = UIColor.black.cgColor,

@@ -1,13 +1,6 @@
-//
-//  UIImage+Utils.swift
-//  MiniSuperApp
-//
-//  Created by 주진홍 on 2023/03/02.
-//
-
 import UIKit
 
-extension UIImage {
+public extension UIImage {
   convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
     let rect = CGRect(origin: .zero, size: size)
     UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
@@ -21,4 +14,3 @@ extension UIImage {
     self.init(cgImage: cgImage)
   }
 }
-

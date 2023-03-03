@@ -9,7 +9,8 @@ import ModernRIBs
 
 protocol TopupInteractable: Interactable,
                             AddPaymentMethodListener,
-                            EnterAmountListener
+                            EnterAmountListener,
+                            CardOnFileListener
 {
     var router: TopupRouting? { get set }
     var listener: TopupListener? { get set }
@@ -26,19 +27,24 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     
     private let addPaymentMethodBuildable: AddPaymentMethodBuildable
     private let enterAmountBuildable: EnterAmountBuildable
+    private let cardOnFileBuildable: CardOnFileBuildable
     
     private var addPaymentMethod: ViewableRouting?
     private var enterAmount: ViewableRouting?
+    private var cardOnFile: ViewableRouting?
+    
     private var navigationControllerable: NavigationControllerable?
     
     init(interactor: TopupInteractable,
          viewController: ViewControllable,
          addPaymentMethodBuildable: AddPaymentMethodBuildable,
-         enterAmountBuildable: EnterAmountBuildable
+         enterAmountBuildable: EnterAmountBuildable,
+         cardOnfileBuildable: CardOnFileBuildable
     ) {
         self.viewController = viewController
         self.addPaymentMethodBuildable = addPaymentMethodBuildable
         self.enterAmountBuildable = enterAmountBuildable
+        self.cardOnFileBuildable = cardOnfileBuildable
         super.init(interactor: interactor)
         interactor.router = self
     }
@@ -77,11 +83,29 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     }
     
     func detachEnterAmount() {
-        if let router = enterAmount {
+        if let router = self.enterAmount {
             dismissPresentedNavigation(completion: nil)
             detachChild(router)
             
             self.enterAmount = nil
+        }
+    }
+    
+    func attachCardOnFile(paymentMethods: [PaymentMethod]) {
+        if self.cardOnFile != nil { return }
+        let router = cardOnFileBuildable.build(withListener: interactor, paymentMethods: paymentMethods)
+        navigationControllerable?.pushViewController(router.viewControllable, animated: true)
+        self.cardOnFile = router
+        
+        attachChild(router)
+    }
+    
+    func detachCardOnFile() {
+        if let router = self.cardOnFile {
+            navigationControllerable?.popViewController(animated: true)
+            detachChild(router)
+            
+            self.cardOnFile = nil
         }
     }
     

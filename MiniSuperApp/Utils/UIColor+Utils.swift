@@ -1,13 +1,6 @@
-//
-//  UIColor+Utils.swift
-//  MiniSuperApp
-//
-//  Created by 주진홍 on 2023/02/21.
-//
-
 import UIKit
 
-extension UIColor {
+public extension UIColor {
   convenience init?(hex: String) {
     let r, g, b, a: CGFloat
     

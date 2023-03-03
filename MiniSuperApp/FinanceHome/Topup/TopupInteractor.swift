@@ -13,6 +13,8 @@ protocol TopupRouting: Routing {
     func detachAddPaymentMethod()
     func attachEnterAmount()
     func detachEnterAmount()
+    func attachCardOnFile(paymentMethods: [PaymentMethod])
+    func detachCardOnFile()
 }
 
 protocol TopupListener: AnyObject {
@@ -21,6 +23,7 @@ protocol TopupListener: AnyObject {
 
 protocol TopupInteractorDependency {
     var cardOnFileRepository: CardOnFileRepository { get }
+    var paymentMethodStream: CurrentValuePublisher<PaymentMethod> { get }
 }
 
 final class TopupInteractor: Interactor, TopupInteractable, AdaptivePresentationControllerDelegate {
@@ -29,6 +32,10 @@ final class TopupInteractor: Interactor, TopupInteractable, AdaptivePresentation
     weak var listener: TopupListener?
     
     let presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy
+    
+    private var paymentMathods: [PaymentMethod] {
+        dependency.cardOnFileRepository.cardOnFile.value
+    }
 
     private let dependency: TopupInteractorDependency
     
@@ -42,10 +49,11 @@ final class TopupInteractor: Interactor, TopupInteractable, AdaptivePresentation
     override func didBecomeActive() {
         super.didBecomeActive()
         
-        if dependency.cardOnFileRepository.cardOnFile.value.isEmpty {
-            router?.attachAddPaymentMethod()
-        }else {
+        if let card = dependency.cardOnFileRepository.cardOnFile.value.first {
+            dependency.paymentMethodStream.send(card)
             router?.attachEnterAmount()
+        }else {
+            router?.attachAddPaymentMethod()
         }
         
     }
@@ -61,12 +69,36 @@ final class TopupInteractor: Interactor, TopupInteractable, AdaptivePresentation
         listener?.topupDidClose()
     }
     
+    func enterAmountDidTapClose() {
+        router?.detachEnterAmount()
+        listener?.topupDidClose()
+    }
+    
     func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod) {
         
     }
     
     func presentationControllerDidDismiss() {
         listener?.topupDidClose()
+    }
+    
+    func enterAmountDidTapPaymentMethod() {
+        router?.attachCardOnFile(paymentMethods: self.paymentMathods)
+    }
+    
+    func cardOnFileDidTapClose() {
+        router?.detachCardOnFile()
+    }
+    
+    func cardOnFileDidTapAddCard() {
+        
+    }
+    
+    func cardOnFileDidSelect(at index: Int) {
+        if let selected = paymentMathods[safe: index] {
+            dependency.paymentMethodStream.send(selected)
+        }
+        router?.detachCardOnFile()
     }
     
     

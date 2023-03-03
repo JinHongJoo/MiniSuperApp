@@ -1,17 +1,24 @@
-//
-//  RIBs+Utils.swift
-//  MiniSuperApp
-//
-//  Created by 주진홍 on 2023/02/21.
-//
-
-import UIKit
+import Foundation
 import ModernRIBs
+import UIKit
 
-final class NavigationControllerable: ViewControllable {
+public enum DismissButtonType {
+  case back, close
   
-  var uiviewController: UIViewController { self.navigationController }
-  let navigationController: UINavigationController
+  public var iconSystemName: String {
+    switch self {
+    case .back:
+      return "chevron.backward"
+    case .close:
+      return "xmark"
+    }
+  }
+}
+
+public final class NavigationControllerable: ViewControllable {
+  
+  public var uiviewController: UIViewController { self.navigationController }
+  public let navigationController: UINavigationController
   
   public init(root: ViewControllable) {
     let navigation = UINavigationController(rootViewController: root.uiviewController)
@@ -23,10 +30,10 @@ final class NavigationControllerable: ViewControllable {
   }
 }
 
-extension ViewControllable {
+public extension ViewControllable {
   
   func present(_ viewControllable: ViewControllable, animated: Bool, completion: (() -> Void)?) {
-    self.uiviewController.present(viewControllable.uiviewController, animated: true, completion: completion)
+    self.uiviewController.present(viewControllable.uiviewController, animated: animated, completion: completion)
   }
   
   func dismiss(completion: (() -> Void)?) {
@@ -63,5 +70,15 @@ extension ViewControllable {
     } else {
       self.uiviewController.navigationController?.setViewControllers(viewControllerables.map(\.uiviewController), animated: true)
     }
+  }
+  
+  var topViewControllable: ViewControllable {
+    var top: ViewControllable = self
+    
+    while let presented = top.uiviewController.presentedViewController as? ViewControllable {
+      top = presented
+    }
+    
+    return top
   }
 }
