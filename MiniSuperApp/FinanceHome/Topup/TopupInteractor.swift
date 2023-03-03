@@ -11,6 +11,8 @@ protocol TopupRouting: Routing {
     func cleanupViews()
     func attachAddPaymentMethod()
     func detachAddPaymentMethod()
+    func attachEnterAmount()
+    func detachEnterAmount()
 }
 
 protocol TopupListener: AnyObject {
@@ -21,15 +23,20 @@ protocol TopupInteractorDependency {
     var cardOnFileRepository: CardOnFileRepository { get }
 }
 
-final class TopupInteractor: Interactor, TopupInteractable {
-
+final class TopupInteractor: Interactor, TopupInteractable, AdaptivePresentationControllerDelegate {
+    
     weak var router: TopupRouting?
     weak var listener: TopupListener?
+    
+    let presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy
 
     private let dependency: TopupInteractorDependency
     
     init(dependency: TopupInteractorDependency) {
+        self.presentationDelegateProxy = AdaptivePresentationControllerDelegateProxy()
         self.dependency = dependency
+        super.init()
+        self.presentationDelegateProxy.delegate = self
     }
 
     override func didBecomeActive() {
@@ -38,7 +45,7 @@ final class TopupInteractor: Interactor, TopupInteractable {
         if dependency.cardOnFileRepository.cardOnFile.value.isEmpty {
             router?.attachAddPaymentMethod()
         }else {
-            
+            router?.attachEnterAmount()
         }
         
     }
@@ -47,7 +54,6 @@ final class TopupInteractor: Interactor, TopupInteractable {
         super.willResignActive()
 
         router?.cleanupViews()
-        // TODO: Pause any business logic.
     }
     
     func addPaymentMethodDidTapClose() {
@@ -58,4 +64,10 @@ final class TopupInteractor: Interactor, TopupInteractable {
     func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod) {
         
     }
+    
+    func presentationControllerDidDismiss() {
+        listener?.topupDidClose()
+    }
+    
+    
 }
