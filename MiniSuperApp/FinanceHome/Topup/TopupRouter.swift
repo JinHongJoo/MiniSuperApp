@@ -76,7 +76,11 @@ final class TopupRouter: Router<TopupInteractable>, TopupRouting {
     func attachEnterAmount() {
         if self.enterAmount != nil { return }
         let router = enterAmountBuildable.build(withListener: interactor)
-        presentInsideNavigation(router.viewControllable)
+        if let navigation = navigationControllerable {
+            navigation.setViewControllers([router.viewControllable])
+        }else {
+            presentInsideNavigation(router.viewControllable)
+        }
         self.enterAmount = router
         
         attachChild(router)
