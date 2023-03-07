@@ -6,6 +6,7 @@
 //
 
 import ModernRIBs
+import Combine
 
 protocol TransportHomeRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -20,24 +21,42 @@ protocol TransportHomeListener: AnyObject {
     func transportHomeDidTapClose()
 }
 
-final class TransportHomeInteractor: PresentableInteractor<TransportHomePresentable>, TransportHomeInteractable, TransportHomePresentableListener {
+protocol TransportHomeInteractorDependency {
+    var superPayBalance: ReadOnlyCurrentValuePublisher<Double> { get }
+}
 
+final class TransportHomeInteractor: PresentableInteractor<TransportHomePresentable>, TransportHomeInteractable, TransportHomePresentableListener {
+    
     weak var router: TransportHomeRouting?
     weak var listener: TransportHomeListener?
-
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: TransportHomePresentable) {
+    
+    private let dependency: TransportHomeInteractorDependency
+    
+    private var cancellables: Set<AnyCancellable>
+    
+    init(
+        presenter: TransportHomePresentable,
+        dependency: TransportHomeInteractorDependency
+    ) {
+        self.dependency = dependency
+        self.cancellables = .init()
         super.init(presenter: presenter)
         presenter.listener = self
     }
-
+    
     override func didBecomeActive() {
         super.didBecomeActive()
         
-        presenter.setSuperPayBalance("babo")
+        dependency.superPayBalance
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] in
+                if let balanceText = Formatter.balanceFormatter.string(from: NSNumber(value: $0)) {
+                    self?.presenter.setSuperPayBalance(balanceText)
+                }
+            }
+            .store(in: &cancellables)
     }
-
+    
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
@@ -45,5 +64,9 @@ final class TransportHomeInteractor: PresentableInteractor<TransportHomePresenta
     
     func didTapBack() {
         listener?.transportHomeDidTapClose()
+    }
+    
+    func didTapRideConfirmButton() {
+        
     }
 }

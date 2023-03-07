@@ -8,13 +8,26 @@
 import ModernRIBs
 
 protocol TransportHomeDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var cardOnFileRepository: CardOnFileRepository { get }
+    var superPayRepository: SuperPayRepository { get }
 }
 
-final class TransportHomeComponent: Component<TransportHomeDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+final class TransportHomeComponent: Component<TransportHomeDependency>,
+                                        TransportHomeInteractorDependency,
+                                        TopupDependency
+{
+    let topupBaseViewController: ViewControllable
+    var cardOnFileRepository: CardOnFileRepository { dependency.cardOnFileRepository }
+    var superPayRepository: SuperPayRepository { dependency.superPayRepository }
+    var superPayBalance: ReadOnlyCurrentValuePublisher<Double> { superPayRepository.balance }
+    
+    init(
+        dependency: TransportHomeDependency,
+        topupBaseViewController: ViewControllable
+    ) {
+        self.topupBaseViewController = topupBaseViewController
+        super.init(dependency: dependency)
+    }
 }
 
 // MARK: - Builder
@@ -30,10 +43,12 @@ final class TransportHomeBuilder: Builder<TransportHomeDependency>, TransportHom
     }
 
     func build(withListener listener: TransportHomeListener) -> TransportHomeRouting {
-        let component = TransportHomeComponent(dependency: dependency)
         let viewController = TransportHomeViewController()
-        let interactor = TransportHomeInteractor(presenter: viewController)
+        let component = TransportHomeComponent(dependency: dependency, topupBaseViewController: viewController)
+        let interactor = TransportHomeInteractor(presenter: viewController, dependency: component)
         interactor.listener = listener
+        
+        let topupBuilder = TopupBuilder(dependency: component)
         return TransportHomeRouter(interactor: interactor, viewController: viewController)
     }
 }

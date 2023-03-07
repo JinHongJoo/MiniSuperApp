@@ -15,7 +15,7 @@ protocol AddPaymentMethodPresentableListener: AnyObject {
 }
 
 final class AddPaymentMethodViewController: UIViewController, AddPaymentMethodPresentable, AddPaymentMethodViewControllable {
-
+    
     weak var listener: AddPaymentMethodPresentableListener?
     
     private let cardNumberTextField: UITextField = {
@@ -65,10 +65,11 @@ final class AddPaymentMethodViewController: UIViewController, AddPaymentMethodPr
         return textField
     }
     
-    init() {
+    init(closeButtonType: DismissButtonType) {
         super.init(nibName: nil, bundle: nil)
         
         setupViews()
+        setupNavigationItem(with: closeButtonType, target: self, action: #selector(didTapClose))
     }
     
     required init?(coder: NSCoder) {
@@ -77,7 +78,6 @@ final class AddPaymentMethodViewController: UIViewController, AddPaymentMethodPr
     
     private func setupViews() {
         title = "카드 추가"
-        setupNavigationItem(with: .back, target: self, action: #selector(didTapClose))
         view.backgroundColor = .backgroundColor
         [cardNumberTextField, stackView, addCardButton].forEach { view.addSubview($0) }
         
