@@ -13,8 +13,8 @@ protocol TransportHomeDependency: Dependency {
 }
 
 final class TransportHomeComponent: Component<TransportHomeDependency>,
-                                        TransportHomeInteractorDependency,
-                                        TopupDependency
+                                    TransportHomeInteractorDependency,
+                                    TopupDependency
 {
     let topupBaseViewController: ViewControllable
     var cardOnFileRepository: CardOnFileRepository { dependency.cardOnFileRepository }
@@ -37,11 +37,11 @@ protocol TransportHomeBuildable: Buildable {
 }
 
 final class TransportHomeBuilder: Builder<TransportHomeDependency>, TransportHomeBuildable {
-
+    
     override init(dependency: TransportHomeDependency) {
         super.init(dependency: dependency)
     }
-
+    
     func build(withListener listener: TransportHomeListener) -> TransportHomeRouting {
         let viewController = TransportHomeViewController()
         let component = TransportHomeComponent(dependency: dependency, topupBaseViewController: viewController)
@@ -49,6 +49,8 @@ final class TransportHomeBuilder: Builder<TransportHomeDependency>, TransportHom
         interactor.listener = listener
         
         let topupBuilder = TopupBuilder(dependency: component)
-        return TransportHomeRouter(interactor: interactor, viewController: viewController)
+        return TransportHomeRouter(interactor: interactor,
+                                   viewController: viewController,
+                                   topupBuildable: topupBuilder)
     }
 }
