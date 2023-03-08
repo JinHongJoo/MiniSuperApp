@@ -172,6 +172,11 @@
 		98EB5C1329A4919B00EF7032 /* HomeWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWidgetModel.swift; sourceTree = "<group>"; };
 		98EB5C1F29A49DD300EF7032 /* RideTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTypeView.swift; sourceTree = "<group>"; };
 		98EB5C2129A49DF900EF7032 /* SuperPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperPayView.swift; sourceTree = "<group>"; };
+		98EE022B29B84BD4006B4F0A /* Finance */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Finance; path = MiniSuperApp/Finance; sourceTree = "<group>"; };
+		98EE022C29B84C08006B4F0A /* CX */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CX; path = MiniSuperApp/CX; sourceTree = "<group>"; };
+		98EE022D29B852D7006B4F0A /* Platform */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Platform; path = MiniSuperApp/Platform; sourceTree = "<group>"; };
+		98EE022E29B857D9006B4F0A /* Transport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Transport; path = MiniSuperApp/Transport; sourceTree = "<group>"; };
+		98EE022F29B857FF006B4F0A /* Profile */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Profile; path = MiniSuperApp/Profile; sourceTree = "<group>"; };
 		98EEE75D29B086A1001C8F23 /* EnterAmountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountRouter.swift; sourceTree = "<group>"; };
 		98EEE75F29B086A1001C8F23 /* EnterAmountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountBuilder.swift; sourceTree = "<group>"; };
 		98EEE76029B086A1001C8F23 /* EnterAmountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountInteractor.swift; sourceTree = "<group>"; };
@@ -352,11 +357,11 @@
 		98EB5BFE29A4817D00EF7032 /* FinanceHome */ = {
 			isa = PBXGroup;
 			children = (
-				98C6118F29ADE2E50007AF43 /* Topup */,
 				98D208BE29A7246B007749C4 /* Repository */,
+				98C6118F29ADE2E50007AF43 /* Topup */,
+				98D208C429A74BB8007749C4 /* AddPaymentMethod */,
 				98D208AE29A70045007749C4 /* CardOnFileDashboard */,
 				98DE347529A5D72700CBC593 /* SuperPayDashboard */,
-				98D208C429A74BB8007749C4 /* AddPaymentMethod */,
 				98EB5BFF29A4818E00EF7032 /* FinanceHomeRouter.swift */,
 				98EB5C0029A4818E00EF7032 /* FinanceHomeViewController.swift */,
 				98EB5C0129A4818E00EF7032 /* FinanceHomeBuilder.swift */,
@@ -426,6 +431,11 @@
 		98F2F12029358ACE00204814 = {
 			isa = PBXGroup;
 			children = (
+				98EE022D29B852D7006B4F0A /* Platform */,
+				98EE022F29B857FF006B4F0A /* Profile */,
+				98EE022E29B857D9006B4F0A /* Transport */,
+				98EE022B29B84BD4006B4F0A /* Finance */,
+				98EE022C29B84C08006B4F0A /* CX */,
 				98F2F12B29358ACF00204814 /* MiniSuperApp */,
 				98F2F14229358AD000204814 /* MiniSuperAppTests */,
 				98F2F14C29358AD000204814 /* MiniSuperAppUITests */,
