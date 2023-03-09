@@ -17,23 +17,9 @@
 		98C48EAE29B9990200666A20 /* SuperUI in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EAD29B9990200666A20 /* SuperUI */; };
 		98C48EB029B9A58D00666A20 /* Topup in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EAF29B9A58D00666A20 /* Topup */; };
 		98C48EB229B9B2F100666A20 /* FinanceHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB129B9B2F100666A20 /* FinanceHome */; };
-		98C48EB429B9BF1C00666A20 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98C48EB329B9BF1C00666A20 /* Formatter.swift */; };
-		98EB5BF129A4618C00EF7032 /* AppHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BED29A4618C00EF7032 /* AppHomeRouter.swift */; };
-		98EB5BF229A4618C00EF7032 /* AppHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BEE29A4618C00EF7032 /* AppHomeViewController.swift */; };
-		98EB5BF329A4618C00EF7032 /* AppHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BEF29A4618C00EF7032 /* AppHomeBuilder.swift */; };
-		98EB5BF429A4618C00EF7032 /* AppHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BF029A4618C00EF7032 /* AppHomeInteractor.swift */; };
-		98EB5BFA29A4813A00EF7032 /* TransportHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BF629A4813A00EF7032 /* TransportHomeRouter.swift */; };
-		98EB5BFB29A4813A00EF7032 /* TransportHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BF729A4813A00EF7032 /* TransportHomeViewController.swift */; };
-		98EB5BFC29A4813A00EF7032 /* TransportHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BF829A4813A00EF7032 /* TransportHomeBuilder.swift */; };
-		98EB5BFD29A4813A00EF7032 /* TransportHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5BF929A4813A00EF7032 /* TransportHomeInteractor.swift */; };
-		98EB5C0C29A481B500EF7032 /* ProfileHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C0829A481B500EF7032 /* ProfileHomeRouter.swift */; };
-		98EB5C0D29A481B500EF7032 /* ProfileHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C0929A481B500EF7032 /* ProfileHomeViewController.swift */; };
-		98EB5C0E29A481B500EF7032 /* ProfileHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C0A29A481B500EF7032 /* ProfileHomeBuilder.swift */; };
-		98EB5C0F29A481B500EF7032 /* ProfileHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C0B29A481B500EF7032 /* ProfileHomeInteractor.swift */; };
-		98EB5C1229A48D4A00EF7032 /* HomeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C1129A48D4A00EF7032 /* HomeWidgetView.swift */; };
-		98EB5C1429A4919B00EF7032 /* HomeWidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C1329A4919B00EF7032 /* HomeWidgetModel.swift */; };
-		98EB5C2029A49DD300EF7032 /* RideTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C1F29A49DD300EF7032 /* RideTypeView.swift */; };
-		98EB5C2229A49DF900EF7032 /* SuperPayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98EB5C2129A49DF900EF7032 /* SuperPayView.swift */; };
+		98C48EB729B9C16800666A20 /* TransportHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB629B9C16800666A20 /* TransportHome */; };
+		98C48EBA29B9CB1E00666A20 /* AppHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB929B9CB1E00666A20 /* AppHome */; };
+		98C48EBD29B9CCA200666A20 /* ProfileHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EBC29B9CCA200666A20 /* ProfileHome */; };
 		98F2F12D29358ACF00204814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F2F12C29358ACF00204814 /* AppDelegate.swift */; };
 		98F2F13629358AD000204814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F2F13529358AD000204814 /* Assets.xcassets */; };
 		98F2F13929358AD000204814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F2F13729358AD000204814 /* LaunchScreen.storyboard */; };
@@ -75,23 +61,9 @@
 		932D81AAD86B26F95EFA5320 /* Pods-MiniSuperApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniSuperApp.release.xcconfig"; path = "Target Support Files/Pods-MiniSuperApp/Pods-MiniSuperApp.release.xcconfig"; sourceTree = "<group>"; };
 		98C48E9D29B979F700666A20 /* Finance */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Finance; sourceTree = "<group>"; };
 		98C48EA029B97D0700666A20 /* Platform */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Platform; sourceTree = "<group>"; };
-		98C48EB329B9BF1C00666A20 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		98EB5BED29A4618C00EF7032 /* AppHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHomeRouter.swift; sourceTree = "<group>"; };
-		98EB5BEE29A4618C00EF7032 /* AppHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHomeViewController.swift; sourceTree = "<group>"; };
-		98EB5BEF29A4618C00EF7032 /* AppHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHomeBuilder.swift; sourceTree = "<group>"; };
-		98EB5BF029A4618C00EF7032 /* AppHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHomeInteractor.swift; sourceTree = "<group>"; };
-		98EB5BF629A4813A00EF7032 /* TransportHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportHomeRouter.swift; sourceTree = "<group>"; };
-		98EB5BF729A4813A00EF7032 /* TransportHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportHomeViewController.swift; sourceTree = "<group>"; };
-		98EB5BF829A4813A00EF7032 /* TransportHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportHomeBuilder.swift; sourceTree = "<group>"; };
-		98EB5BF929A4813A00EF7032 /* TransportHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportHomeInteractor.swift; sourceTree = "<group>"; };
-		98EB5C0829A481B500EF7032 /* ProfileHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeRouter.swift; sourceTree = "<group>"; };
-		98EB5C0929A481B500EF7032 /* ProfileHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeViewController.swift; sourceTree = "<group>"; };
-		98EB5C0A29A481B500EF7032 /* ProfileHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeBuilder.swift; sourceTree = "<group>"; };
-		98EB5C0B29A481B500EF7032 /* ProfileHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHomeInteractor.swift; sourceTree = "<group>"; };
-		98EB5C1129A48D4A00EF7032 /* HomeWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWidgetView.swift; sourceTree = "<group>"; };
-		98EB5C1329A4919B00EF7032 /* HomeWidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWidgetModel.swift; sourceTree = "<group>"; };
-		98EB5C1F29A49DD300EF7032 /* RideTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTypeView.swift; sourceTree = "<group>"; };
-		98EB5C2129A49DF900EF7032 /* SuperPayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperPayView.swift; sourceTree = "<group>"; };
+		98C48EB529B9C11100666A20 /* Transport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Transport; sourceTree = "<group>"; };
+		98C48EB829B9CADF00666A20 /* CX */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CX; sourceTree = "<group>"; };
+		98C48EBB29B9CC5C00666A20 /* Profile */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Profile; sourceTree = "<group>"; };
 		98F2F12929358ACF00204814 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F2F12C29358ACF00204814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98F2F13529358AD000204814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,10 +89,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				98C48EAC29B9990200666A20 /* RIBsUtils in Frameworks */,
+				98C48EBD29B9CCA200666A20 /* ProfileHome in Frameworks */,
 				98C48EAA29B9990200666A20 /* CombineUtils in Frameworks */,
 				98C48EA429B97F4700666A20 /* AddPaymentMethod in Frameworks */,
+				98C48EB729B9C16800666A20 /* TransportHome in Frameworks */,
 				98C48EB229B9B2F100666A20 /* FinanceHome in Frameworks */,
 				98C48EA829B9990200666A20 /* FinanceRepository in Frameworks */,
+				98C48EBA29B9CB1E00666A20 /* AppHome in Frameworks */,
 				98C48EAE29B9990200666A20 /* SuperUI in Frameworks */,
 				98C48EB029B9A58D00666A20 /* Topup in Frameworks */,
 				98C48EA629B9990200666A20 /* FinanceEntity in Frameworks */,
@@ -157,65 +132,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		98EB5BEC29A4611300EF7032 /* AppHome */ = {
-			isa = PBXGroup;
-			children = (
-				98EB5C1029A48D2300EF7032 /* Views */,
-				98EB5BED29A4618C00EF7032 /* AppHomeRouter.swift */,
-				98EB5BEE29A4618C00EF7032 /* AppHomeViewController.swift */,
-				98EB5BEF29A4618C00EF7032 /* AppHomeBuilder.swift */,
-				98EB5BF029A4618C00EF7032 /* AppHomeInteractor.swift */,
-				98EB5C1329A4919B00EF7032 /* HomeWidgetModel.swift */,
-			);
-			path = AppHome;
-			sourceTree = "<group>";
-		};
-		98EB5BF529A4812A00EF7032 /* TransportHome */ = {
-			isa = PBXGroup;
-			children = (
-				98EB5C1E29A49DB600EF7032 /* Views */,
-				98EB5BF629A4813A00EF7032 /* TransportHomeRouter.swift */,
-				98EB5BF729A4813A00EF7032 /* TransportHomeViewController.swift */,
-				98EB5BF829A4813A00EF7032 /* TransportHomeBuilder.swift */,
-				98EB5BF929A4813A00EF7032 /* TransportHomeInteractor.swift */,
-				98C48EB329B9BF1C00666A20 /* Formatter.swift */,
-			);
-			path = TransportHome;
-			sourceTree = "<group>";
-		};
-		98EB5C0729A481A400EF7032 /* ProfileHome */ = {
-			isa = PBXGroup;
-			children = (
-				98EB5C0829A481B500EF7032 /* ProfileHomeRouter.swift */,
-				98EB5C0929A481B500EF7032 /* ProfileHomeViewController.swift */,
-				98EB5C0A29A481B500EF7032 /* ProfileHomeBuilder.swift */,
-				98EB5C0B29A481B500EF7032 /* ProfileHomeInteractor.swift */,
-			);
-			path = ProfileHome;
-			sourceTree = "<group>";
-		};
-		98EB5C1029A48D2300EF7032 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				98EB5C1129A48D4A00EF7032 /* HomeWidgetView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		98EB5C1E29A49DB600EF7032 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				98EB5C1F29A49DD300EF7032 /* RideTypeView.swift */,
-				98EB5C2129A49DF900EF7032 /* SuperPayView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		98F2F12029358ACE00204814 = {
 			isa = PBXGroup;
 			children = (
+				98C48EB829B9CADF00666A20 /* CX */,
 				98C48EA029B97D0700666A20 /* Platform */,
+				98C48EB529B9C11100666A20 /* Transport */,
 				98C48E9D29B979F700666A20 /* Finance */,
+				98C48EBB29B9CC5C00666A20 /* Profile */,
 				98F2F12B29358ACF00204814 /* MiniSuperApp */,
 				98F2F14229358AD000204814 /* MiniSuperAppTests */,
 				98F2F14C29358AD000204814 /* MiniSuperAppUITests */,
@@ -240,9 +164,6 @@
 			children = (
 				98F2F16529358C8D00204814 /* AppDelegate */,
 				98F2F16429358BAD00204814 /* AppRoot */,
-				98EB5BEC29A4611300EF7032 /* AppHome */,
-				98EB5BF529A4812A00EF7032 /* TransportHome */,
-				98EB5C0729A481A400EF7032 /* ProfileHome */,
 				98F2F13529358AD000204814 /* Assets.xcassets */,
 				98F2F13729358AD000204814 /* LaunchScreen.storyboard */,
 				98F2F13A29358AD000204814 /* Info.plist */,
@@ -327,6 +248,9 @@
 				98C48EAD29B9990200666A20 /* SuperUI */,
 				98C48EAF29B9A58D00666A20 /* Topup */,
 				98C48EB129B9B2F100666A20 /* FinanceHome */,
+				98C48EB629B9C16800666A20 /* TransportHome */,
+				98C48EB929B9CB1E00666A20 /* AppHome */,
+				98C48EBC29B9CCA200666A20 /* ProfileHome */,
 			);
 			productName = MiniSuperApp;
 			productReference = 98F2F12929358ACF00204814 /* MiniSuperApp.app */;
@@ -548,29 +472,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98EB5C1229A48D4A00EF7032 /* HomeWidgetView.swift in Sources */,
-				98EB5BF129A4618C00EF7032 /* AppHomeRouter.swift in Sources */,
-				98EB5C0C29A481B500EF7032 /* ProfileHomeRouter.swift in Sources */,
-				98EB5BFC29A4813A00EF7032 /* TransportHomeBuilder.swift in Sources */,
-				98EB5C0F29A481B500EF7032 /* ProfileHomeInteractor.swift in Sources */,
-				98EB5BFA29A4813A00EF7032 /* TransportHomeRouter.swift in Sources */,
-				98EB5C1429A4919B00EF7032 /* HomeWidgetModel.swift in Sources */,
-				98EB5BF329A4618C00EF7032 /* AppHomeBuilder.swift in Sources */,
-				98EB5BFB29A4813A00EF7032 /* TransportHomeViewController.swift in Sources */,
-				98C48EB429B9BF1C00666A20 /* Formatter.swift in Sources */,
 				98F2F16129358BA800204814 /* AppRootTabBarController.swift in Sources */,
-				98EB5BF429A4618C00EF7032 /* AppHomeInteractor.swift in Sources */,
 				98F2F16029358BA800204814 /* AppRootRouter.swift in Sources */,
-				98EB5C0D29A481B500EF7032 /* ProfileHomeViewController.swift in Sources */,
 				98F2F16329358BA800204814 /* AppRootInteractor.swift in Sources */,
-				98EB5BFD29A4813A00EF7032 /* TransportHomeInteractor.swift in Sources */,
 				98F2F12D29358ACF00204814 /* AppDelegate.swift in Sources */,
 				98F2F16229358BA800204814 /* AppRootBuilder.swift in Sources */,
-				98EB5C2229A49DF900EF7032 /* SuperPayView.swift in Sources */,
-				98EB5C2029A49DD300EF7032 /* RideTypeView.swift in Sources */,
-				98EB5C0E29A481B500EF7032 /* ProfileHomeBuilder.swift in Sources */,
 				98F2F16929358D8400204814 /* AppComponent.swift in Sources */,
-				98EB5BF229A4618C00EF7032 /* AppHomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +850,18 @@
 		98C48EB129B9B2F100666A20 /* FinanceHome */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FinanceHome;
+		};
+		98C48EB629B9C16800666A20 /* TransportHome */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TransportHome;
+		};
+		98C48EB929B9CB1E00666A20 /* AppHome */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppHome;
+		};
+		98C48EBC29B9CCA200666A20 /* ProfileHome */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ProfileHome;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

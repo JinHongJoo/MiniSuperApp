@@ -45,7 +45,9 @@ let package = Package(
         .target(
             name: "FinanceHome",
             dependencies: [
-                
+                "FinanceRepository",
+                "ModernRIBs",
+                "Topup",
             ]),
         .target(
             name: "FinanceRepository",

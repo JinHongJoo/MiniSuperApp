@@ -17,7 +17,7 @@ protocol AppHomePresentable: Presentable {
     func updateWidget(_ widgetViewModels: [HomeWidgetViewModel])
 }
 
-protocol AppHomeListener: AnyObject {
+public protocol AppHomeListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
@@ -47,8 +47,8 @@ final class AppHomeInteractor: PresentableInteractor<AppHomePresentable>, AppHom
             HomeWidgetModel(
                 imageName: "cart",
                 title: "슈퍼마트",
-                tapHandler: { [weak self] in
-                    print("tap super mart")
+                tapHandler: { 
+                    print("슈퍼마트")
                 }
             )
         ]
