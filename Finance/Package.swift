@@ -16,6 +16,9 @@ let package = Package(
         .library(
             name: "FinanceRepository",
             targets: ["FinanceRepository"]),
+        .library(
+            name: "Topup",
+            targets: ["Topup"]),
     ],
     dependencies: [
         .package(url: "https://github.com/DevYeom/ModernRIBs.git", from: "1.0.2"),
@@ -28,9 +31,9 @@ let package = Package(
             dependencies: [
                 "ModernRIBs",
                 "SnapKit",
-                .product(name: "SuperUI", package: "Platform"),
                 "FinanceEntity",
-                "FinanceRepository"
+                "FinanceRepository",
+                .product(name: "SuperUI", package: "Platform"),
             ]),
         .target(
             name: "FinanceEntity",
@@ -39,8 +42,16 @@ let package = Package(
         .target(
             name: "FinanceRepository",
             dependencies: [
-                .product(name: "CombineUtils", package: "Platform"),
                 "FinanceEntity",
+                .product(name: "CombineUtils", package: "Platform"),
+            ]),
+        .target(
+            name: "Topup",
+            dependencies: [
+                "ModernRIBs",
+                "FinanceRepository",
+                "AddPaymentMethod",
+                .product(name: "CombineUtils", package: "Platform"),
             ]),
     ]
 )

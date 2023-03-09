@@ -8,6 +8,7 @@
 import ModernRIBs
 import CombineUtils
 import FinanceEntity
+import FinanceRepository
 
 protocol EnterAmountDependency: Dependency {
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
