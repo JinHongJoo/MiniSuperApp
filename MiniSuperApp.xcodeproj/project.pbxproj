@@ -167,7 +167,6 @@
 		98EE023529B86037006B4F0A /* AddPaymentMethodRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodRouter.swift; sourceTree = "<group>"; };
 		98EE023629B86037006B4F0A /* AddPaymentMethodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodInteractor.swift; sourceTree = "<group>"; };
 		98EE023729B86037006B4F0A /* AddPaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentMethodViewController.swift; sourceTree = "<group>"; };
-		98EE023929B860A3006B4F0A /* Finance */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Finance; path = MiniSuperApp/Finance; sourceTree = "<group>"; };
 		98EEE75D29B086A1001C8F23 /* EnterAmountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountRouter.swift; sourceTree = "<group>"; };
 		98EEE75F29B086A1001C8F23 /* EnterAmountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountBuilder.swift; sourceTree = "<group>"; };
 		98EEE76029B086A1001C8F23 /* EnterAmountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountInteractor.swift; sourceTree = "<group>"; };
@@ -422,7 +421,6 @@
 		98F2F12029358ACE00204814 = {
 			isa = PBXGroup;
 			children = (
-				98EE023929B860A3006B4F0A /* Finance */,
 				98F2F12B29358ACF00204814 /* MiniSuperApp */,
 				98F2F14229358AD000204814 /* MiniSuperAppTests */,
 				98F2F14C29358AD000204814 /* MiniSuperAppUITests */,

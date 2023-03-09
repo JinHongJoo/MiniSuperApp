@@ -7,9 +7,7 @@
 
 import ModernRIBs
 
-protocol TransportHomeInteractable: Interactable,
-                                    TopupListener
-{
+protocol TransportHomeInteractable: Interactable {
     var router: TransportHomeRouting? { get set }
     var listener: TransportHomeListener? { get set }
 }
@@ -19,34 +17,10 @@ protocol TransportHomeViewControllable: ViewControllable {
 }
 
 final class TransportHomeRouter: ViewableRouter<TransportHomeInteractable, TransportHomeViewControllable>, TransportHomeRouting {
-    
-    private let topupBuildable: TopupBuildable
-    
-    private var topup: Routing?
-    
-    init(
-        interactor: TransportHomeInteractable,
-        viewController: TransportHomeViewControllable,
-        topupBuildable: TopupBuildable
-    ) {
-        self.topupBuildable = topupBuildable
+
+    // TODO: Constructor inject child builder protocols to allow building children.
+    override init(interactor: TransportHomeInteractable, viewController: TransportHomeViewControllable) {
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
-    }
-    
-    func attachTopup() {
-        if self.topup == nil {
-            let router = topupBuildable.build(withListener: interactor)
-            self.topup = router
-            
-            attachChild(router)
-        }
-    }
-    
-    func detachTopup() {
-        if let topup = self.topup {
-            detachChild(topup)
-            self.topup = nil
-        }
     }
 }
