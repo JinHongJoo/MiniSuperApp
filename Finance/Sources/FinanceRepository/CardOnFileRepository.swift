@@ -7,14 +7,16 @@
 
 import Foundation
 import Combine
+import CombineUtils
+import FinanceEntity
 
-protocol CardOnFileRepository {
+public protocol CardOnFileRepository {
     var cardOnFile: ReadOnlyCurrentValuePublisher<[PaymentMethod]> { get }
     func addCard(info: AddPaymentMethodInfo) -> AnyPublisher<PaymentMethod, Error>
 }
 
-final class CardOnFileRepositoryImp: CardOnFileRepository {
-    var cardOnFile: ReadOnlyCurrentValuePublisher<[PaymentMethod]> { paymentMethodsSubject }
+public final class CardOnFileRepositoryImp: CardOnFileRepository {
+    public var cardOnFile: ReadOnlyCurrentValuePublisher<[PaymentMethod]> { paymentMethodsSubject }
     
     private let paymentMethodsSubject = CurrentValuePublisher<[PaymentMethod]>([
 //        PaymentMethod(id: "0", name: "카카오뱅크", digits: "2231", color: "#fd48a3ff", isPrimary: false),
@@ -24,7 +26,7 @@ final class CardOnFileRepositoryImp: CardOnFileRepository {
 //        PaymentMethod(id: "4", name: "기업은행", digits: "9942", color: "#dda8a8ff", isPrimary: false)
     ])
     
-    func addCard(info: AddPaymentMethodInfo) -> AnyPublisher<PaymentMethod, Error> {
+    public func addCard(info: AddPaymentMethodInfo) -> AnyPublisher<PaymentMethod, Error> {
         let paymentMethod = PaymentMethod(id: "00", name: "New 카드", digits: "\(info.number.suffix(4))", color: "", isPrimary: false)
         
         var new = paymentMethodsSubject.value
@@ -32,5 +34,9 @@ final class CardOnFileRepositoryImp: CardOnFileRepository {
         paymentMethodsSubject.send(new)
         
         return Just(paymentMethod).setFailureType(to: Error.self).eraseToAnyPublisher()
+    }
+    
+    public init(){
+        
     }
 }

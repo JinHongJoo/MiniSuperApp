@@ -1,4 +1,5 @@
 import UIKit
+import RIBsUtils
 
 public extension UIViewController {
   func setupNavigationItem(with buttonType: DismissButtonType, target: Any?, action: Selector?) {

@@ -6,6 +6,7 @@
 //
 
 import ModernRIBs
+import RIBsUtils
 
 protocol AppRootInteractable: Interactable,
                             AppHomeListener,

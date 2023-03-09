@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CombineUtils
 
 protocol SuperPayRepository {
     var balance: ReadOnlyCurrentValuePublisher<Double> { get }

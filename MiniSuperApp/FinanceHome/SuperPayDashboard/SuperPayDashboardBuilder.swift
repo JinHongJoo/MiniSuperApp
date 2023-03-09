@@ -6,6 +6,8 @@
 //
 
 import ModernRIBs
+import CombineUtils
+import Foundation
 
 protocol SuperPayDashboardDependency: Dependency {
     var balance: ReadOnlyCurrentValuePublisher<Double> { get }
