@@ -20,6 +20,8 @@
 		98C48EB729B9C16800666A20 /* TransportHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB629B9C16800666A20 /* TransportHome */; };
 		98C48EBA29B9CB1E00666A20 /* AppHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB929B9CB1E00666A20 /* AppHome */; };
 		98C48EBD29B9CCA200666A20 /* ProfileHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EBC29B9CCA200666A20 /* ProfileHome */; };
+		98E3010A29BEFD28000C6CFF /* AppRootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E3010929BEFD28000C6CFF /* AppRootComponent.swift */; };
+		98E3010C29BF0352000C6CFF /* TransportHomeImp in Frameworks */ = {isa = PBXBuildFile; productRef = 98E3010B29BF0352000C6CFF /* TransportHomeImp */; };
 		98F2F12D29358ACF00204814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F2F12C29358ACF00204814 /* AppDelegate.swift */; };
 		98F2F13629358AD000204814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F2F13529358AD000204814 /* Assets.xcassets */; };
 		98F2F13929358AD000204814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98F2F13729358AD000204814 /* LaunchScreen.storyboard */; };
@@ -64,6 +66,7 @@
 		98C48EB529B9C11100666A20 /* Transport */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Transport; sourceTree = "<group>"; };
 		98C48EB829B9CADF00666A20 /* CX */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CX; sourceTree = "<group>"; };
 		98C48EBB29B9CC5C00666A20 /* Profile */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Profile; sourceTree = "<group>"; };
+		98E3010929BEFD28000C6CFF /* AppRootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootComponent.swift; sourceTree = "<group>"; };
 		98F2F12929358ACF00204814 /* MiniSuperApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSuperApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F2F12C29358ACF00204814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98F2F13529358AD000204814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +93,7 @@
 			files = (
 				98C48EAC29B9990200666A20 /* RIBsUtils in Frameworks */,
 				98C48EBD29B9CCA200666A20 /* ProfileHome in Frameworks */,
+				98E3010C29BF0352000C6CFF /* TransportHomeImp in Frameworks */,
 				98C48EAA29B9990200666A20 /* CombineUtils in Frameworks */,
 				98C48EA429B97F4700666A20 /* AddPaymentMethod in Frameworks */,
 				98C48EB729B9C16800666A20 /* TransportHome in Frameworks */,
@@ -195,6 +199,7 @@
 				98F2F15D29358BA800204814 /* AppRootTabBarController.swift */,
 				98F2F15E29358BA800204814 /* AppRootBuilder.swift */,
 				98F2F15F29358BA800204814 /* AppRootInteractor.swift */,
+				98E3010929BEFD28000C6CFF /* AppRootComponent.swift */,
 			);
 			path = AppRoot;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				98C48EB629B9C16800666A20 /* TransportHome */,
 				98C48EB929B9CB1E00666A20 /* AppHome */,
 				98C48EBC29B9CCA200666A20 /* ProfileHome */,
+				98E3010B29BF0352000C6CFF /* TransportHomeImp */,
 			);
 			productName = MiniSuperApp;
 			productReference = 98F2F12929358ACF00204814 /* MiniSuperApp.app */;
@@ -477,6 +483,7 @@
 				98F2F16329358BA800204814 /* AppRootInteractor.swift in Sources */,
 				98F2F12D29358ACF00204814 /* AppDelegate.swift in Sources */,
 				98F2F16229358BA800204814 /* AppRootBuilder.swift in Sources */,
+				98E3010A29BEFD28000C6CFF /* AppRootComponent.swift in Sources */,
 				98F2F16929358D8400204814 /* AppComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -862,6 +869,10 @@
 		98C48EBC29B9CCA200666A20 /* ProfileHome */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ProfileHome;
+		};
+		98E3010B29BF0352000C6CFF /* TransportHomeImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TransportHomeImp;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
