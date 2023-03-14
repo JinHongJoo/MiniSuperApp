@@ -7,7 +7,7 @@
 
 import ModernRIBs
 import UIKit
-import Topup
+import TopupImp
 
 protocol CardOnFileDashboardPresentableListener: AnyObject {
     func didTapAddPaymentMethod()

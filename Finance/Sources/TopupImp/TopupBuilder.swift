@@ -10,16 +10,17 @@ import FinanceRepository
 import CombineUtils
 import FinanceEntity
 import AddPaymentMethod
+import Topup
 
 public protocol TopupDependency: Dependency {
     var topupBaseViewController: ViewControllable { get }
     var cardOnFileRepository: CardOnFileRepository { get }
     var superPayRepository: SuperPayRepository { get }
+    var AddPaymentMethodBuildable: AddPaymentMethodBuildable { get }
 }
 
 final class TopupComponent: Component<TopupDependency>,
                             TopupInteractorDependency,
-                            AddPaymentMethodDependency,
                             EnterAmountDependency,
                             CardOnFileDependency
 {
@@ -32,6 +33,8 @@ final class TopupComponent: Component<TopupDependency>,
     
     let paymentMethodStream: CurrentValuePublisher<PaymentMethod>
     
+    var AddPaymentMethodBuildable: AddPaymentMethodBuildable { dependency.AddPaymentMethodBuildable }
+    
     init(dependency: TopupDependency,
          paymentMethodStream: CurrentValuePublisher<PaymentMethod>
     ) {
@@ -41,10 +44,6 @@ final class TopupComponent: Component<TopupDependency>,
 }
 
 // MARK: - Builder
-
-public protocol TopupBuildable: Buildable {
-    func build(withListener listener: TopupListener) -> Routing
-}
 
 public final class TopupBuilder: Builder<TopupDependency>, TopupBuildable {
 
@@ -59,12 +58,11 @@ public final class TopupBuilder: Builder<TopupDependency>, TopupBuildable {
         let interactor = TopupInteractor(dependency: component)
         interactor.listener = listener
         
-        let addPaymentMethod = AddPaymentMethodBuilder(dependency: component)
         let enterAmount = EnterAmountBuilder(dependency: component)
         let cardOnFile = CardOnFileBuilder(dependency: component)
         return TopupRouter(interactor: interactor,
                            viewController: component.topupBaseViewController,
-                           addPaymentMethodBuildable: addPaymentMethod,
+                           addPaymentMethodBuildable: component.AddPaymentMethodBuildable,
                            enterAmountBuildable: enterAmount,
                            cardOnfileBuildable: cardOnFile)
     }

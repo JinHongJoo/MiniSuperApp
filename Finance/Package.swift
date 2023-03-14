@@ -11,6 +11,9 @@ let package = Package(
             name: "AddPaymentMethod",
             targets: ["AddPaymentMethod"]),
         .library(
+            name: "AddPaymentMethodImp",
+            targets: ["AddPaymentMethodImp"]),
+        .library(
             name: "FinanceEntity",
             targets: ["FinanceEntity"]),
         .library(
@@ -22,6 +25,9 @@ let package = Package(
         .library(
             name: "Topup",
             targets: ["Topup"]),
+        .library(
+            name: "TopupImp",
+            targets: ["TopupImp"]),
     ],
     dependencies: [
         .package(url: "https://github.com/DevYeom/ModernRIBs.git", from: "1.0.2"),
@@ -32,11 +38,18 @@ let package = Package(
         .target(
             name: "AddPaymentMethod",
             dependencies: [
+                "ModernRIBs",
+            ]),
+        .target(
+            name: "AddPaymentMethodImp",
+            dependencies: [
+                "AddPaymentMethod",
                 "FinanceEntity",
                 "FinanceRepository",
                 "ModernRIBs",
                 "SnapKit",
                 .product(name: "SuperUI", package: "Platform"),
+                .product(name: "RIBsUtils", package: "Platform"),
             ]),
         .target(
             name: "FinanceEntity",
@@ -47,7 +60,7 @@ let package = Package(
             dependencies: [
                 "FinanceRepository",
                 "ModernRIBs",
-                "Topup",
+                "TopupImp",
             ]),
         .target(
             name: "FinanceRepository",
@@ -58,8 +71,14 @@ let package = Package(
         .target(
             name: "Topup",
             dependencies: [
+                "ModernRIBs",
+            ]),
+        .target(
+            name: "TopupImp",
+            dependencies: [
                 "AddPaymentMethod",
                 "FinanceRepository",
+                "Topup",
                 "ModernRIBs",
                 .product(name: "CombineUtils", package: "Platform"),
             ]),

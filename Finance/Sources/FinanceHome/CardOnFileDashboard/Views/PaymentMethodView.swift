@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-import Topup
+import TopupImp
 
 final class PaymentMethodView: UIView {
     

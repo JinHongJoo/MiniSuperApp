@@ -20,6 +20,8 @@
 		98C48EB729B9C16800666A20 /* TransportHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB629B9C16800666A20 /* TransportHome */; };
 		98C48EBA29B9CB1E00666A20 /* AppHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EB929B9CB1E00666A20 /* AppHome */; };
 		98C48EBD29B9CCA200666A20 /* ProfileHome in Frameworks */ = {isa = PBXBuildFile; productRef = 98C48EBC29B9CCA200666A20 /* ProfileHome */; };
+		98DF669A29C00D7D004DC16C /* TopupImp in Frameworks */ = {isa = PBXBuildFile; productRef = 98DF669929C00D7D004DC16C /* TopupImp */; };
+		98DF669C29C04AC8004DC16C /* AddPaymentMethodImp in Frameworks */ = {isa = PBXBuildFile; productRef = 98DF669B29C04AC8004DC16C /* AddPaymentMethodImp */; };
 		98E3010A29BEFD28000C6CFF /* AppRootComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E3010929BEFD28000C6CFF /* AppRootComponent.swift */; };
 		98E3010C29BF0352000C6CFF /* TransportHomeImp in Frameworks */ = {isa = PBXBuildFile; productRef = 98E3010B29BF0352000C6CFF /* TransportHomeImp */; };
 		98F2F12D29358ACF00204814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F2F12C29358ACF00204814 /* AppDelegate.swift */; };
@@ -91,11 +93,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DF669A29C00D7D004DC16C /* TopupImp in Frameworks */,
 				98C48EAC29B9990200666A20 /* RIBsUtils in Frameworks */,
 				98C48EBD29B9CCA200666A20 /* ProfileHome in Frameworks */,
 				98E3010C29BF0352000C6CFF /* TransportHomeImp in Frameworks */,
 				98C48EAA29B9990200666A20 /* CombineUtils in Frameworks */,
 				98C48EA429B97F4700666A20 /* AddPaymentMethod in Frameworks */,
+				98DF669C29C04AC8004DC16C /* AddPaymentMethodImp in Frameworks */,
 				98C48EB729B9C16800666A20 /* TransportHome in Frameworks */,
 				98C48EB229B9B2F100666A20 /* FinanceHome in Frameworks */,
 				98C48EA829B9990200666A20 /* FinanceRepository in Frameworks */,
@@ -257,6 +261,8 @@
 				98C48EB929B9CB1E00666A20 /* AppHome */,
 				98C48EBC29B9CCA200666A20 /* ProfileHome */,
 				98E3010B29BF0352000C6CFF /* TransportHomeImp */,
+				98DF669929C00D7D004DC16C /* TopupImp */,
+				98DF669B29C04AC8004DC16C /* AddPaymentMethodImp */,
 			);
 			productName = MiniSuperApp;
 			productReference = 98F2F12929358ACF00204814 /* MiniSuperApp.app */;
@@ -869,6 +875,14 @@
 		98C48EBC29B9CCA200666A20 /* ProfileHome */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ProfileHome;
+		};
+		98DF669929C00D7D004DC16C /* TopupImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TopupImp;
+		};
+		98DF669B29C04AC8004DC16C /* AddPaymentMethodImp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AddPaymentMethodImp;
 		};
 		98E3010B29BF0352000C6CFF /* TransportHomeImp */ = {
 			isa = XCSwiftPackageProductDependency;
