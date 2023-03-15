@@ -67,6 +67,7 @@ let package = Package(
             dependencies: [
                 "FinanceEntity",
                 .product(name: "CombineUtils", package: "Platform"),
+                .product(name: "Network", package: "Platform"),
             ]),
         .target(
             name: "Topup",

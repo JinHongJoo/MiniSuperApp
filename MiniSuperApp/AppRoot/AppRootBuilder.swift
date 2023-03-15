@@ -6,7 +6,6 @@
 //
 
 import ModernRIBs
-import FinanceRepository
 import FinanceHome
 import AppHome
 import ProfileHome
@@ -33,8 +32,6 @@ final class AppRootBuilder: Builder<AppRootDependency>, AppRootBuildable {
         
         let component = AppRootComponent(
             dependency: dependency,
-            cardOnFileRepository: CardOnFileRepositoryImp(),
-            superPayRepository: SuperPayRepositoryImp(),
             rootViewController: tabBar
         )
         
