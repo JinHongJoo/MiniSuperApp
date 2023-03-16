@@ -30,5 +30,5 @@ struct AddCardRequest: Request {
 }
 
 struct AddCardResponse: Decodable {
-    let status: String
+    let card: PaymentMethod
 }
