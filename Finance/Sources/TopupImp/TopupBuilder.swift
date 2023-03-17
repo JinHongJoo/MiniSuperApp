@@ -5,18 +5,21 @@
 //  Created by 주진홍 on 2023/02/28.
 //
 
+import Foundation
 import ModernRIBs
 import FinanceRepository
 import CombineUtils
 import FinanceEntity
 import AddPaymentMethod
 import Topup
+import CombineSchedulers
 
 public protocol TopupDependency: Dependency {
     var topupBaseViewController: ViewControllable { get }
     var cardOnFileRepository: CardOnFileRepository { get }
     var superPayRepository: SuperPayRepository { get }
     var AddPaymentMethodBuildable: AddPaymentMethodBuildable { get }
+    var mainQueue: AnySchedulerOf<DispatchQueue> { get}
 }
 
 final class TopupComponent: Component<TopupDependency>,
@@ -24,6 +27,8 @@ final class TopupComponent: Component<TopupDependency>,
                             EnterAmountDependency,
                             CardOnFileDependency
 {
+    var mainQueue: AnySchedulerOf<DispatchQueue> { dependency.mainQueue }
+    
     var superPayRepository: SuperPayRepository { dependency.superPayRepository }
     
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { paymentMethodStream }

@@ -5,19 +5,24 @@
 //  Created by 주진홍 on 2023/03/02.
 //
 
+import Foundation
 import ModernRIBs
 import CombineUtils
 import FinanceEntity
 import FinanceRepository
+import CombineSchedulers
 
 protocol EnterAmountDependency: Dependency {
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { get }
     var superPayRepository: SuperPayRepository { get }
+    var mainQueue: AnySchedulerOf<DispatchQueue> { get}
 }
 
 final class EnterAmountComponent: Component<EnterAmountDependency>,
                                     EnterAmountInteractorDependency
 {
+    var mainQueue: AnySchedulerOf<DispatchQueue> { dependency.mainQueue }
+    
     var superPayRepository: SuperPayRepository { dependency.superPayRepository }
     
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { dependency.selectedPaymentMethod }
